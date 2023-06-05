@@ -2,6 +2,8 @@
 
 The useWeb3 hook is a custom hook that provides access to Ethereum-related data and functionality in your React applications. It is designed to simplify the interaction with the Ethereum network and Metamask wallet.
 
+[Online Website: https://web3-context-hook.vercel.app/](https://web3-context-hook.vercel.app/)
+
 ## Usage
 
 To use the useWeb3 hook, you need to wrap your application or component with the Web3Provider component. This component sets up the necessary context and makes the useWeb3 hook available for use.
