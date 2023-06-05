@@ -14,8 +14,11 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>DApp Sample</title>
-        <meta name='description' content='Gang NFT Creator is a collection representing communities.' />
+        <title>web3ContextHook</title>
+        <meta
+          name='description'
+          content='The web3ContextHook provided allows you to easily integrate EVM functionality into your React JS / Next JS applications. By leveraging the EVM data and functions, you can build decentralized applications and interact with the EVMs network with ease.'
+        />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
 
