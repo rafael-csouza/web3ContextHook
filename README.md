@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+###Web3Context Hook
+The useWeb3 hook is a custom hook that provides access to Ethereum-related data and functionality in your React applications. It is designed to simplify the interaction with the Ethereum network and Metamask wallet.
 
-## Getting Started
+##Usage
+To use the useWeb3 hook, you need to wrap your application or component with the Web3Provider component. This component sets up the necessary context and makes the useWeb3 hook available for use.
 
-First, run the development server:
+javascript
+Copy code
+import { Web3Provider } from './contexts/Web3Context';
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+function App() {
+return (
+<Web3Provider>
+{/_ Your app components _/}
+</Web3Provider>
+);
+}
+Once the Web3Provider is set up, you can use the useWeb3 hook to access Ethereum-related data and functions in your components.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+javascript
+Copy code
+import { useWeb3 } from './contexts/Web3Context';
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+function MyComponent() {
+const { networkId, signer, wallet, balance, status, connectWallet, networkChange } = useWeb3();
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+// Access Ethereum-related data and functionality here
 
-## Learn More
+return (
+// Your component JSX
+);
+}
+The useWeb3 hook provides the following properties and functions:
 
-To learn more about Next.js, take a look at the following resources:
+networkId: The ID of the connected Ethereum network.
+signer: The Ethereum signer object associated with the connected wallet.
+wallet: The address of the connected wallet.
+balance: The balance of the connected wallet in Ether.
+status: The status of the connection (e.g., "Loading", "NotConnected", "Connected").
+connectWallet: A function to connect the wallet and retrieve Ethereum-related data.
+networkChange: A function to handle network changes and update the connection accordingly.
+By using these properties and functions, you can display the Ethereum-related data in your components, handle wallet connections, and react to network changes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Note: Make sure to handle error cases appropriately and provide a user-friendly experience in case of errors or connection issues.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##Example
+Here's an example of how you can use the useWeb3 hook in your application:
 
-## Deploy on Vercel
+javascript
+Copy code
+import { useWeb3 } from './contexts/Web3Context';
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+function MyComponent() {
+const { networkId, wallet, balance, status, connectWallet } = useWeb3();
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+return (
+<div>
+<p>Network ID: {networkId}</p>
+<p>Wallet: {wallet}</p>
+<p>Balance: {balance}</p>
+
+      {status === 'NotConnected' && (
+        <button onClick={connectWallet}>Connect Wallet</button>
+      )}
+
+      {/* Other component UI */}
+    </div>
+
+);
+}
+In this example, we display the network ID, wallet address, and balance of the connected wallet. If the status is "NotConnected", we render a button to allow the user to connect their wallet.
+
+Feel free to customize the UI and functionality based on your application's requirements.
+
+##Conclusion
+The useWeb3 hook provided by the Web3Provider allows you to easily integrate Ethereum functionality into your React applications. By leveraging the Ethereum-related data and functions, you can build decentralized applications and interact with the Ethereum network with ease.
