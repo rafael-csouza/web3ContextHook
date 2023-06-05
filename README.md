@@ -35,12 +35,19 @@ return (
 The useWeb3 hook provides the following properties and functions:
 
 networkId: The ID of the connected EVM network.
+
 signer: The EVM signer object associated with the connected wallet.
+
 wallet: The address of the connected wallet.
+
 balance: The balance of the connected wallet in Ether.
+
 status: The status of the connection (e.g., "Loading", "NotConnected", "Connected").
+
 connectWallet: A function to connect the wallet and retrieve EVM data.
+
 networkChange: A function to handle network changes and update the connection accordingly.
+
 By using these properties and functions, you can display the EVM data in your components, handle wallet connections, and react to network changes.
 
 Note: Make sure to handle error cases appropriately and provide a user-friendly experience in case of errors or connection issues.
@@ -143,11 +150,17 @@ tailwindcss (version 3.3.2): A highly customizable and responsive CSS utility li
 The config.js file contains some settings used in the project:
 
 testNet: A boolean variable that indicates whether the project is configured to use a test network. If true, the project is configured for the testnet. Otherwise it is set to the main network.
+
 localWebsite: A Boolean variable that indicates whether the project is running locally. If true, it means the project is running locally. Otherwise it is running online.
+
 chainID: A constant that defines the chain ID (chain ID) based on the testNet and localWebsite variables. If testNet is true, the chain ID is set to the Mumbai testnet (80001). Otherwise it will be set to the main Polygon network (137).
+
 websiteExplorer: A constant that defines the URL of the network block explorer based on the testNet variable. If testNet is true, the URL is set to the Mumbai testnet block explorer. Otherwise, it will be set to the Polygon mainnet block explorer.
+
 websiteUrl: A constant that defines the website URL based on the testNet variable. If testNet is true, the URL is set to the test site URL. Otherwise it will be set to an empty string.
+
 alchemyUrl: A constant that defines the URL for Alchemy to interact with the Ethereum network based on the testNet variable. If testNet is true, the URL is set to the Alchemy URL for the Mumbai testnet. Otherwise it will be set to the Alchemy URL for the Polygon mainnet.
+
 apiURL: A constant that defines the API URL based on the localWebsite variable. If localWebsite is true, the URL is set to the local API at http://localhost:3000/api. Otherwise, it will be set to the online API at ${websiteUrl}/api.
 
 ## Conclusion
