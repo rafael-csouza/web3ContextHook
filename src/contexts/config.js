@@ -1,3 +1,5 @@
+// Configs
+
 export const testNet = true;
 export const localWebsite = true;
 
